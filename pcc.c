@@ -84,7 +84,7 @@ double* pearson_cor(int **matrix, int *vector, int n) {
     //Calculate r
     for (int i=0; i<n ; i++) {
             r[i] = (n*sumOfCrossProduct[i]-(sumOfX[i]*sumOfY)) / sqrt(( ((n*sumOfxsquared[i])-(sumOfX[i]*sumOfX[i])) * ((n*sumOfysquared)-(sumOfY*sumOfY)) )) ;
-            printf("%f\n", r[i]);
+            // printf("%f\n", r[i]);
     }
 
     return r;
