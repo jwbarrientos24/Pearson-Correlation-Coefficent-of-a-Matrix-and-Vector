@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <sys/time.h>
 #include <stdlib.h>
 #include <math.h>
 #include <pthread.h>
@@ -88,6 +89,7 @@ double *pearson_cor_parallel(float **matrix, float *vector, int n, int num_threa
 
 int main() {
     int n;
+    struct timeval start_time, end_time;
 
     printf("How big is the matrix? ");
     scanf("%d", &n);
@@ -121,13 +123,17 @@ int main() {
     printf("Enter the number of threads: ");
     scanf("%d", &num_threads);
 
-    time_t time_before = time(0);
+    gettimeofday(&start_time, NULL);
 
     // Compute Pearson correlation coefficients in parallel
     double *r = pearson_cor_parallel(matrix, vector, n, num_threads);
 
-    time_t time_after = time(0);
-    printf("\nTIME ELAPSED: %ld\n", time_after-time_before);
+    gettimeofday(&end_time, NULL);
+    double time_elapsed = (end_time.tv_sec - start_time.tv_sec) * 1000.0; // Seconds to milliseconds
+    time_elapsed += (end_time.tv_usec - start_time.tv_usec) / 1000.0; // Microseconds to milliseconds
+    time_elapsed = time_elapsed / 1000; // Milliseconds converted to seconds.milliseconds
+
+    printf("\nTIME ELAPSED: %.2f seconds\n", time_elapsed);
 
     // Free dynamically allocated memory
     for (int i = 0; i < n; i++) {
