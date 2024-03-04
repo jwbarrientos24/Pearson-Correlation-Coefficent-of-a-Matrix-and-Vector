@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <math.h>
 
+
 double* pearson_cor(float **matrix, float *vector, int n) {
 
     // Dynamically allocate memory for arrays
