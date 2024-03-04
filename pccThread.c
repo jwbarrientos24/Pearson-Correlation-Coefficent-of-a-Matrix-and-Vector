@@ -28,7 +28,12 @@ void *compute_correlation(void *args) {
     // Compute the range of rows for this thread
     int chunk_size = n / num_threads;
     int start_row = thread_id * chunk_size;
-    int end_row = (thread_id == num_threads - 1) ? n : (thread_id + 1) * chunk_size;
+    int end_row;
+    if (thread_id == num_threads - 1) {
+        end_row = n;
+    } else {
+        end_row = (thread_id + 1) * chunk_size;
+    }
 
     // Compute Pearson correlation coefficients for the assigned rows
     for (int i = start_row; i < end_row; i++) {
