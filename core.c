@@ -1,5 +1,17 @@
 #define _GNU_SOURCE
 
+/* 
+References:
+J. P. Barrientos, “jwbarrientos24/Pearson-Correlation-Coefficent-of-a-Matrix-and-Vector,” GitHub, Feb. 25, 2024. https://github.com/jwbarrientos24/Pearson-Correlation-Coefficent-of-a-Matrix-and-Vector (accessed Mar. 04, 2024).
+“How to set CPU affinity of a particular pthread?,” Stack Overflow. https://stackoverflow.com/questions/1407786/how-to-set-cpu-affinity-of-a-particular-pthread (accessed Mar. 19, 2024).
+Amiri, “How to set CPU affinity for a process from C or C++ in Linux?,” Stack Overflow, Sep. 02, 2020. https://stackoverflow.com/a/41299791 (accessed Mar. 19, 2024).
+M. Kerrisk, “pthread_attr_setaffinity_np(3) - Linux manual page,” man7.org, Dec. 22, 2023. https://man7.org/linux/man-pages/man3/pthread_attr_setaffinity_np.3.html (accessed Mar. 19, 2024).
+“CPU Affinity (The GNU C Library),” www.gnu.org. https://www.gnu.org/software/libc/manual/html_node/CPU-Affinity.html
+M. Kerrisk, “CPU_SET(3) - Linux manual page,” man7.org, Dec. 22, 2023. https://man7.org/linux/man-pages/man3/CPU_SET.3.html (accessed Mar. 19, 2024).
+M. Kerrisk, “pthread_create(3) - Linux manual page,” man7.org, Dec. 22, 2023. https://man7.org/linux/man-pages/man3/pthread_create.3.html
+*/
+
+
 #include <stdio.h>
 #include <time.h>
 #include <sys/time.h>
